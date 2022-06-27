@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Models >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\unexp\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\unexp\\Desktop\\revature\\project1\\expensereimbursementsystem\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem.csproj",
+      "projectUniqueName": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem.csproj",
       "projectName": "ExpenseReimbursementSystem",
-      "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\expensereimbursementsystem\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem.csproj",
+      "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem.csproj",
       "packagesPath": "C:\\Users\\unexp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\expensereimbursementsystem\\ExpenseReimbursementSystem\\obj\\",
+      "outputPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\unexp\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -31,7 +50,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Models\\Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

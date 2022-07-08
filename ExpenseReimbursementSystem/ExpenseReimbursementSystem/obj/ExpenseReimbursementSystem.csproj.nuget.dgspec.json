@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem.csproj": {}
+    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Expensereimbursementsystem\\ExpenseReimbursementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem.csproj": {
+    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Expensereimbursementsystem\\ExpenseReimbursementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Expensereimbursementsystem\\ExpenseReimbursementSystem.csproj",
         "projectName": "ExpenseReimbursementSystem",
-        "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem.csproj",
+        "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Expensereimbursementsystem\\ExpenseReimbursementSystem.csproj",
         "packagesPath": "C:\\Users\\unexp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\ExpenseReimbursementSystem\\obj\\",
+        "outputPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Expensereimbursementsystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\unexp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\unexp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,31 +53,28 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Models\\Models.csproj": {
+    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Models\\Models.csproj",
+        "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\models\\Models.csproj",
         "packagesPath": "C:\\Users\\unexp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\Models\\obj\\",
+        "outputPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\unexp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\unexp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -103,12 +102,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     }

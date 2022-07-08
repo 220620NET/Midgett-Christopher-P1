@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\dataaccess\\DataAccess\\DataAccess.csproj": {}
+    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\DataAccess\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\dataaccess\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\DataAccess\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\dataaccess\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\DataAccess\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\dataaccess\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\DataAccess\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\unexp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\dataaccess\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\unexp\\Desktop\\revature\\project1\\ExpenseReimbursementSystem\\DataAccess\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\unexp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\unexp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,12 +49,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     }

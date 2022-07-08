@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExpenseReimbursementSystem", "ExpenseReimbursementSystem", "{F09BF97A-7B15-459B-8885-019F9AB845C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{58AFD5A5-FC46-4330-977D-45DDD629A80D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "ExpenseReimbursementSystem\DataAccess\DataAccess\DataAccess.csproj", "{DDC6832E-4220-4612-8679-44F113FE75CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseReimbursementSystem", "ExpenseReimbursementSystem\Expensereimbursementsystem\ExpenseReimbursementSystem.csproj", "{3E7EDC07-63A4-4CA4-80E8-F7FD4CFEEEB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "ExpenseReimbursementSystem\models\Models.csproj", "{EE50C9C5-F4BE-4CA8-8C29-737AF98918D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDC6832E-4220-4612-8679-44F113FE75CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDC6832E-4220-4612-8679-44F113FE75CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDC6832E-4220-4612-8679-44F113FE75CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDC6832E-4220-4612-8679-44F113FE75CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E7EDC07-63A4-4CA4-80E8-F7FD4CFEEEB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7EDC07-63A4-4CA4-80E8-F7FD4CFEEEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7EDC07-63A4-4CA4-80E8-F7FD4CFEEEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7EDC07-63A4-4CA4-80E8-F7FD4CFEEEB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE50C9C5-F4BE-4CA8-8C29-737AF98918D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE50C9C5-F4BE-4CA8-8C29-737AF98918D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE50C9C5-F4BE-4CA8-8C29-737AF98918D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE50C9C5-F4BE-4CA8-8C29-737AF98918D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58AFD5A5-FC46-4330-977D-45DDD629A80D} = {F09BF97A-7B15-459B-8885-019F9AB845C9}
+		{DDC6832E-4220-4612-8679-44F113FE75CE} = {58AFD5A5-FC46-4330-977D-45DDD629A80D}
+		{3E7EDC07-63A4-4CA4-80E8-F7FD4CFEEEB7} = {F09BF97A-7B15-459B-8885-019F9AB845C9}
+		{EE50C9C5-F4BE-4CA8-8C29-737AF98918D7} = {F09BF97A-7B15-459B-8885-019F9AB845C9}
+	EndGlobalSection
+EndGlobal

@@ -1,33 +1,62 @@
 using Models;
+using CustomExceptions;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DataAccess;
 
-public class UserRepoDA
+public class UserRepoDA : IUserRepoDA
 {
-    string connectionString = 
-            "Server=tcp:revatureproject1.database.windows.net,1433;Initial Catalog=revproject1;"
-            + "Persist Security Info=False;User ID=sqluser;Password=" + Sensitive.SensitiveVariables.dbpassword + ";"
-            + "MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-    List<UserModel> users = new List<UserModel>();
-    // public List<UserModel> GetUserByID()
-    // {
-    //     users = true;
-    //     return users;
-    // }
+    
+    public UserModel GetUserByID(int userID)
+    {
+        UserModel lsit = new UserModel();
+        return lsit;
+    }
 
-    // public List<UserModel> GetUserByUsername()
-    // {
+     public UserModel GetUserByUsername(string Username)
+     {
+        UserModel foundUser;
+        SqlConnection connection = DBConnection.GetInstance().GetConnection();
         
-    // }
+        string sqlString = "Select * from db_ExpenseReimbursement.users where username = @name";
+
+        SqlCommand command = new SqlCommand(sqlString,connection);
+
+        command.Parameters.AddWithValue("@name",Username);
+
+        try
+        {
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                return new UserModel
+                {
+                    UserId =(int)reader["ID"], 
+                    Username =(string)reader["Username"], 
+                    Password =(string)reader["Password"],
+                    Role =(string)reader["User_Role"]
+                };
+            }
+            reader.Close();
+            connection.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        throw new ResourceNotFoundExceptions("User not found");
+     }
 
     public bool CreateUser(UserModel newUser)
     {
         string queryString = "insert into db_ExpenseReimbursement.users (username,password,User_Role) values(@username,@password,@User_Role)";
 
-        using (SqlConnection connection = new SqlConnection(connectionString))
-        {
+            SqlConnection connection = DBConnection.GetInstance().GetConnection(); 
+
             SqlCommand command = new SqlCommand(queryString,connection);
             command.Parameters.AddWithValue("@username",newUser.Username);
             command.Parameters.AddWithValue("@password",newUser.Password);
@@ -36,7 +65,6 @@ public class UserRepoDA
             {
                 connection.Open();
                 int rowsAffected = command.ExecuteNonQuery();
-                
 
                 if(rowsAffected != 0)
                 {
@@ -48,42 +76,46 @@ public class UserRepoDA
                 Console.WriteLine(ex.Message);
             }
             return false;
-        }
+        
     }
-
+    
     public List<UserModel> GetAllUsers()
     {
-        List<UserModel> users2 = new List<UserModel>();
+        List<UserModel> users = new List<UserModel>();
+        DataSet UserSet = new DataSet();
+        SqlDataAdapter UserAdapter = new SqlDataAdapter("select * from db_ExpenseReimbursement.users", DBConnection.GetInstance().GetConnection());
 
-        string queryString = "select * from db_ExpenseReimbursement.users";
+        UserAdapter.Fill(UserSet,"UserTable");
 
-        SqlConnection connection = new SqlConnection(connectionString);
-        
-        SqlCommand command = new SqlCommand(queryString,connection);
+        DataTable? UserTable = UserSet.Tables["UserTable"];
 
         try
         {
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            if(UserTable != null)
             {
-                //Console.WriteLine("\t{0}\t{1}\t{2}\t{3}",reader[0], reader[1], reader[2],reader[3]);
-                users2.Add(new UserModel((int)reader[0], (string)reader[1], (string)reader[2],(string)reader[3]));
+                foreach(DataRow row in UserTable.Rows)
+                {
+                    UserModel temp = new UserModel();
+                    temp.UserId = Convert.ToInt32(row["ID"]);
+                    temp.Username = row["Username"].ToString();
+                    temp.Password = row["Password"].ToString();
+                    temp.Role = row["User_Role"].ToString();
+
+                    users.Add(temp);
+                }
             }
-            reader.Close();
-            connection.Close();
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
 
-        return users2;
+        return users;
         
     }
 
-    // public void DeleteOneUser(int userID)
-    // {
-    //     users = true;
-    // }
+    public void DeleteOneUser(int userID)
+    {
+        
+    }
 }

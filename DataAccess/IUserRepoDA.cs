@@ -4,7 +4,7 @@ namespace DataAccess;
 
 public interface IUserRepoDA
 {
-    UserModel GetUserByID(int userID);
+    UserModel GetUserByID(string userID);
     UserModel GetUserByUsername(string Username);
     bool CreateUser(UserModel newUser);
     List<UserModel> GetAllUsers();

@@ -20,6 +20,18 @@ foreach(UserModel user in users)
     Console.WriteLine(user);
 }
 
+UserModel users2 = userRepoDA.GetUserByUsername("paul");
+
+Console.WriteLine("Got user by username:");
+Console.WriteLine(users2);
+
+
+UserModel users3 = userRepoDA.GetUserByID("2");
+
+Console.WriteLine("Got user by ID:");
+Console.WriteLine(users3);
+
+
 
 
 

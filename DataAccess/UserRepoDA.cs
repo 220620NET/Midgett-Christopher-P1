@@ -9,15 +9,42 @@ public class UserRepoDA : IUserRepoDA
 {
 
     
-    public UserModel GetUserByID(int userID)
+    public UserModel GetUserByID(string userID)
     {
-        UserModel lsit = new UserModel();
-        return lsit;
+        SqlConnection connection = DBConnection.GetInstance().GetConnection();
+        
+        string sqlString = "Select * from db_ExpenseReimbursement.users where ID = @userid";
+
+        SqlCommand command = new SqlCommand(sqlString,connection);
+
+        command.Parameters.AddWithValue("@userid",userID);
+
+        try
+        {
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                return new UserModel
+                {
+                    UserId =(int)reader["ID"], 
+                    Username =(string)reader["Username"], 
+                    Password =(string)reader["Password"],
+                    Role =(string)reader["User_Role"]
+                };
+            }
+            reader.Close();
+            connection.Close();
+        }
+        catch (ResourceNotFoundExceptions)
+        {
+            Console.WriteLine("User not found by userID");
+        }
+        throw new ResourceNotFoundExceptions("User not found by userID");
     }
 
      public UserModel GetUserByUsername(string Username)
      {
-        UserModel foundUser;
         SqlConnection connection = DBConnection.GetInstance().GetConnection();
         
         string sqlString = "Select * from db_ExpenseReimbursement.users where username = @name";
@@ -43,12 +70,11 @@ public class UserRepoDA : IUserRepoDA
             reader.Close();
             connection.Close();
         }
-        catch (Exception ex)
+        catch (ResourceNotFoundExceptions)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine("User not found by username");
         }
-
-        throw new ResourceNotFoundExceptions("User not found");
+        throw new ResourceNotFoundExceptions("User not found by username");
      }
 
     public bool CreateUser(UserModel newUser)

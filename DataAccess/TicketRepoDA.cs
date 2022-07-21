@@ -142,7 +142,7 @@ public class TicketRepoDA : ITicketRepoDA
         }
         return false;
     }
-    bool UpdateTicket(TicketModel updateTicket, string resolver, string status)
+    public bool UpdateTicket(TicketModel updateTicket, string resolver, string status)
     {
         SqlConnection connection = DBConnection.GetInstance().GetConnection(); 
 

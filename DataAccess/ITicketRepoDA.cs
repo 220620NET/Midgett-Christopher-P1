@@ -8,4 +8,5 @@ public interface ITicketRepoDA
     TicketModel TicketByAuthor(string Author);
     TicketModel TicketByStatus(string Status);
     bool CreateTicket(TicketModel newTicket);
+    bool UpdateTicket(TicketModel updateTicket, string resolver, string status);
 }

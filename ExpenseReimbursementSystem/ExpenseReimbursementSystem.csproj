@@ -3,6 +3,11 @@
   <ItemGroup>
     <ProjectReference Include="..\models\Models.csproj" />
     <ProjectReference Include="..\services\Services.csproj" />
+    <ProjectReference Include="..\dataaccess\DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
   </ItemGroup>
 
   <PropertyGroup>

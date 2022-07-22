@@ -13,14 +13,14 @@ public class UserService
         _userRepo = repo;
     }
 
-    public UserModel GetUserByID()
+    public UserModel GetUserByID(int? userID)
     {
-        return _userRepo.GetUserByID();
+        return _userRepo.GetUserByID(userID);
     }
 
-    public UserModel GetUserByUsername()
+    public UserModel GetUserByUsername(string? username)
     {
-        return _userRepo.GetUserByUsername();
+        return _userRepo.GetUserByUsername(username);
     }
 
     public List<UserModel> GetAllUsers()

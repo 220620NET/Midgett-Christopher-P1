@@ -15,11 +15,11 @@ public class AuthService
         _userRepo = repository;
     }
 
-    public async Task<UserModel> Register(UserModel newUser)
+    public UserModel Register(UserModel newUser)
     {
         try
         {
-            await _userRepo.GetUserByUsername(newUser.Username);
+            _userRepo.GetUserByUsername(newUser.Username);
             throw new UsernameNotAvailableException();
         }
         catch(ResourceNotFoundExceptions)
@@ -28,11 +28,11 @@ public class AuthService
         }
     }
 
-    public async Task<UserModel> LogIn(UserModel userToFind)
+    public UserModel LogIn(UserModel userToFind)
     {
         try
         {
-            UserModel foundUser = await _userRepo.GetUserByUsername(userToFind.Username);
+            UserModel foundUser = _userRepo.GetUserByUsername(userToFind.Username);
 
             if(userToFind.Password == foundUser.Password)
             {
@@ -43,5 +43,6 @@ public class AuthService
         {
             throw new InvalidCredentialsException();
         }
+        throw new ResourceNotFoundExceptions();
     }
 }

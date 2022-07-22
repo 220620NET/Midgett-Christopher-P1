@@ -1,2 +1,4 @@
 Sensitive/SensitiveVariables.cs
 connectionstring.txt
+appsettings.Development.json
+appsettings.json

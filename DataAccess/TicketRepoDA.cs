@@ -8,9 +8,14 @@ namespace DataAccess;
 public class TicketRepoDA : ITicketRepoDA
 {
 
-    public TicketModel TicketByID(string ID)
+    private readonly DBConnection _connectionFactory;
+    public TicketRepoDA(DBConnection factory)
     {
-        SqlConnection connection = DBConnection.GetInstance().GetConnection();
+        _connectionFactory = factory;
+    }
+    public TicketModel TicketByID(int? ID)
+    {
+        SqlConnection connection = _connectionFactory.GetConnection();
 
         string sqlString = "Select * from db_ExpenseReimbursement.tickets where ID = @id";
 
@@ -45,7 +50,7 @@ public class TicketRepoDA : ITicketRepoDA
     }
     public TicketModel TicketByAuthor(string Author)
     {
-        SqlConnection connection = DBConnection.GetInstance().GetConnection();
+        SqlConnection connection = _connectionFactory.GetConnection();
 
         string sqlString = "Select * from db_ExpenseReimbursement.tickets where Author = @author";
 
@@ -80,7 +85,7 @@ public class TicketRepoDA : ITicketRepoDA
     }
     public TicketModel TicketByStatus(string Status)
     {
-        SqlConnection connection = DBConnection.GetInstance().GetConnection();
+        SqlConnection connection = _connectionFactory.GetConnection();
 
         string sqlString = "Select * from db_ExpenseReimbursement.tickets where Status = @status";
 
@@ -117,7 +122,7 @@ public class TicketRepoDA : ITicketRepoDA
     {
     string queryString = "insert into db_ExpenseReimbursement.tickets (author,resolver,description,status,amount) values(@author,@resolver,@description,@status,@amount)";
 
-        SqlConnection connection = DBConnection.GetInstance().GetConnection(); 
+        SqlConnection connection = _connectionFactory.GetConnection(); 
 
         SqlCommand command = new SqlCommand(queryString,connection);
         command.Parameters.AddWithValue("@author",newTicket.Author);
@@ -142,15 +147,15 @@ public class TicketRepoDA : ITicketRepoDA
         }
         return false;
     }
-    public bool UpdateTicket(TicketModel updateTicket, string resolver, string status)
+    public bool UpdateTicket(TicketModel updateTicket)
     {
-        SqlConnection connection = DBConnection.GetInstance().GetConnection(); 
+        SqlConnection connection = _connectionFactory.GetConnection(); 
 
         string sqlString = "Update db_ExpenseReimbursement.tickets set resolver = @resolver where Status = @status";
 
         SqlCommand command = new SqlCommand(sqlString,connection);
-        command.Parameters.AddWithValue("@resolver",resolver);
-        command.Parameters.AddWithValue("@status",status);
+        command.Parameters.AddWithValue("@resolver",updateTicket.Resolver);
+        command.Parameters.AddWithValue("@status",updateTicket.Status);
 
         try
         {

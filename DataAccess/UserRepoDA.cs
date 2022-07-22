@@ -8,11 +8,16 @@ namespace DataAccess;
 public class UserRepoDA : IUserRepoDA
 {
 
-    
-    public UserModel GetUserByID(string userID)
+    private readonly DBConnection _connectionFactory;
+    public UserRepoDA(DBConnection factory)
     {
-        SqlConnection connection = DBConnection.GetInstance().GetConnection();
-        
+        _connectionFactory = factory;
+    }
+
+    public UserModel GetUserByID(int? userID)
+    {
+        SqlConnection connection = _connectionFactory.GetConnection();
+
         string sqlString = "Select * from db_ExpenseReimbursement.users where ID = @userid";
 
         SqlCommand command = new SqlCommand(sqlString,connection);
@@ -45,7 +50,7 @@ public class UserRepoDA : IUserRepoDA
 
      public UserModel GetUserByUsername(string Username)
      {
-        SqlConnection connection = DBConnection.GetInstance().GetConnection();
+        SqlConnection connection = _connectionFactory.GetConnection();
         
         string sqlString = "Select * from db_ExpenseReimbursement.users where username = @name";
 
@@ -77,11 +82,11 @@ public class UserRepoDA : IUserRepoDA
         throw new ResourceNotFoundExceptions("User not found by username");
      }
 
-    public bool CreateUser(UserModel newUser)
+    public UserModel CreateUser(UserModel newUser)
     {
         string queryString = "insert into db_ExpenseReimbursement.users (username,password,User_Role) values(@username,@password,@User_Role)";
 
-            SqlConnection connection = DBConnection.GetInstance().GetConnection(); 
+            SqlConnection connection = _connectionFactory.GetConnection();
 
             SqlCommand command = new SqlCommand(queryString,connection);
             command.Parameters.AddWithValue("@username",newUser.Username);
@@ -94,14 +99,14 @@ public class UserRepoDA : IUserRepoDA
 
                 if(rowsAffected != 0)
                 {
-                    return true;
+                    return GetUserByUsername(newUser.Username);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return false;
+            throw new UsernameNotAvailableException();
         
     }
     
@@ -109,7 +114,7 @@ public class UserRepoDA : IUserRepoDA
     {
         List<UserModel> users = new List<UserModel>();
         DataSet UserSet = new DataSet();
-        SqlDataAdapter UserAdapter = new SqlDataAdapter("select * from db_ExpenseReimbursement.users", DBConnection.GetInstance().GetConnection());
+        SqlDataAdapter UserAdapter = new SqlDataAdapter("select * from db_ExpenseReimbursement.users", _connectionFactory.GetConnection());
 
         UserAdapter.Fill(UserSet,"UserTable");
 
